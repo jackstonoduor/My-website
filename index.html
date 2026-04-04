@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Online Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f8f9fa;
+    }
+
+    header {
+      background: linear-gradient(to right, #0a66c2, #00c853);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    button {
+      background: #00c853;
+      color: white;
+      border: none;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .mpesa {
+      background: #e8f5e9;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>My Online Business</h1>
+  <p>Healthy Living • Beauty • Digital Services</p>
+</header>
+
+<section>
+  <h2>🛒 Our Products</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="">
+      <h3>Shea Butter Body Cream</h3>
+      <p>KES 500</p>
+      <button onclick="order('Shea Butter Body Cream - KES 500')">Order Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="">
+      <h3>Lip Balm</h3>
+      <p>KES 150</p>
+      <button onclick="order('Lip Balm - KES 150')">Order Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="">
+      <h3>Kojic Soap</h3>
+      <p>KES 300</p>
+      <button onclick="order('Kojic Soap - KES 300')">Order Now</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="">
+      <h3>Sanitary Pads</h3>
+      <p>KES 250</p>
+      <button onclick="order('Sanitary Pads - KES 250')">Order Now</button>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>💳 Pay via M-Pesa</h2>
+  <div class="mpesa">
+    <p><b>Lipa na M-Pesa</b></p>
+    <p>Buy Goods Till Number:</p>
+    <h2>123456</h2>
+    <p>After payment, click order and send confirmation via WhatsApp</p>
+  </div>
+</section>
+
+<section>
+  <h2>🚚 Delivery</h2>
+  <p style="text-align:center;">
+    ✔ Nairobi: Same day delivery<br>
+    ✔ Outside Nairobi: 1–2 days<br>
+    ✔ Delivery fee applies
+  </p>
+</section>
+
+<section>
+  <h2>📞 Contact Us</h2>
+  <p style="text-align:center;">WhatsApp: 0746337816</p>
+</section>
+
+<footer>
+  <p>© 2026 My Online Business | Trusted Brand</p>
+</footer>
+
+<script>
+function order(product) {
+  let phone = "254746337816";
+  let message = "Hello, I want to order: " + product;
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
