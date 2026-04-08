@@ -1,162 +1,44 @@
+<!-- Updated index.html with localStorage functionality -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Jackston Online Business - Admin & Product Management</title>
-  <style>
-    body { font-family: Arial; margin: 0; background: #f4f6f9; }
-    header { background: linear-gradient(90deg,#0a66c2,#00c853); color: white; text-align: center; padding: 20px; }
-    header div { display: flex; align-items: center; justify-content: center; gap: 15px; }
-    header img { border-radius: 50%; width: 60px; height: 60px; }
-    h2 { text-align: center; }
-    .products, .orders { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; padding: 20px; }
-    .card { background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .card:hover { transform: scale(1.05); }
-    img.product-img { width: 100%; border-radius: 10px; }
-    button { background: #00c853; color: white; border: none; padding: 10px; width: 100%; margin-top: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-    .form-section { background: white; padding: 20px; margin: 20px; border-radius: 10px; }
-    input, select { width: 100%; padding: 10px; margin: 8px 0; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
-    th { background: #0a66c2; color: white; }
-    footer { background: #222; color: white; text-align: center; padding: 10px; }
-    .admin-profile { text-align: center; margin-bottom: 20px; }
-    .admin-profile img { width: 80px; height: 80px; border-radius: 50%; }
-  </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>My Website</title>
 </head>
-
 <body>
+   <h1>Product List</h1>
+   <ul id="product-list"></ul>
 
-<header>
-  <div>
-    <img src="https://via.placeholder.com/80/0a66c2/ffffff?text=JO" alt="Profile Picture">
-    <div>
-      <h1 style="margin:0;">🛍 Jackston Online Business</h1>
-      <p style="margin:0;">Healthy Living | Digital Services | Fast Delivery 🚚</p>
-    </div>
-  </div>
-</header>
+   <button id="save-orders">Save Orders</button>
 
-<div class="admin-profile">
-  <h2>Admin Profile</h2>
-  <img src="https://via.placeholder.com/80/0a66c2/ffffff?text=JO" alt="Admin">
-  <p><strong>Jackston Oduor</strong></p>
-</div>
+   <script>
+       const products = [
+           { id: 1, name: 'Product 1', price: 10 },
+           { id: 2, name: 'Product 2', price: 20 },
+           { id: 3, name: 'Product 3', price: 30 }
+       ];
 
-<h2>Products</h2>
-<div class="products" id="productGrid"></div>
+       const orders = [];
 
-<div class="form-section">
-  <h2>📝 Place Your Order</h2>
-  <input type="text" id="name" placeholder="Your Name">
-  <input type="text" id="location" placeholder="Delivery Location">
-  <input type="number" id="quantity" placeholder="Quantity">
-  <select id="productSelect"><option>Select Product</option></select>
-  <button onclick="checkout()">Order via WhatsApp</button>
-</div>
+       // Function to display products
+       function displayProducts() {
+           const productList = document.getElementById('product-list');
+           products.forEach(product => {
+               const li = document.createElement('li');
+               li.innerText = `${product.name} - $${product.price}`;
+               productList.appendChild(li);
+           });
+       }
 
-<div class="form-section">
-  <h2>📊 Admin Dashboard</h2>
-  <table id="orderTable">
-    <thead>
-      <tr><th>Name</th><th>Location</th><th>Product</th><th>Quantity</th><th>Status</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+       // Save orders to localStorage
+       document.getElementById('save-orders').addEventListener('click', () => {
+           localStorage.setItem('orders', JSON.stringify(orders));
+           alert('Orders saved!');
+       });
 
-<div class="form-section">
-  <h2>⚙️ Product Management</h2>
-  <input type="text" id="prodName" placeholder="Product Name">
-  <input type="number" id="prodPrice" placeholder="Price (KES)">
-  <input type="text" id="prodImg" placeholder="Image URL">
-  <button onclick="addProduct()">Add Product</button>
-</div>
-
-<footer>
-  <p>📞 0119645924 | © 2026 Jackston Online</p>
-</footer>
-
-<script>
-let products = [
-  {name:"Shea Butter Cream", price:700, img:"https://images.unsplash.com/photo-1608248597279-f99d160bfcbc"},
-  {name:"Lip Balm", price:250, img:"https://images.unsplash.com/photo-1585386959984-a41552231658"},
-  {name:"Kojic Soap", price:300, img:"https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb"}
-];
-
-let orders = [];
-
-function renderProducts() {
-  let grid = document.getElementById("productGrid");
-  let select = document.getElementById("productSelect");
-  grid.innerHTML = "";
-  select.innerHTML = "<option>Select Product</option>";
-  products.forEach((p,i)=>{
-    grid.innerHTML += `<div class="card">\n      <img src="${p.img}" class="product-img">\n      <h3>${p.name}</h3>\n      <p>KES ${p.price}</p>\n      <button onclick="selectProduct('${i}')">Select</button>\n      <button style="background:red;margin-top:5px;" onclick="deleteProduct(${i})">Delete</button>\n    </div>`;
-    select.innerHTML += `<option value="${i}">${p.name} - KES ${p.price}</option>`;
-  });
-}
-
-function selectProduct(index){
-  document.getElementById("productSelect").value = index;
-}
-
-function addProduct(){
-  let name=document.getElementById("prodName").value;
-  let price=document.getElementById("prodPrice").value;
-  let img=document.getElementById("prodImg").value;
-  if(!name || !price || !img){ alert("Fill all fields"); return; }
-  products.push({name, price, img});
-  renderProducts();
-  document.getElementById("prodName").value="";
-  document.getElementById("prodPrice").value="";
-  document.getElementById("prodImg").value="";
-}
-
-function deleteProduct(index){
-  if(confirm("Delete this product?")){
-    products.splice(index,1);
-    renderProducts();
-  }
-}
-
-function checkout(){
-  let name=document.getElementById("name").value;
-  let location=document.getElementById("location").value;
-  let quantity=document.getElementById("quantity").value;
-  let prodIndex=document.getElementById("productSelect").value;
-  if(!name||!location||!quantity||prodIndex==="Select Product"){alert("Fill all fields"); return;}
-  let product=products[prodIndex];
-  let phone="254119645924";
-  let message=`NEW ORDER%0AName: ${name}%0ALocation: ${location}%0AProduct: ${product.name} - KES ${product.price}%0AQuantity: ${quantity}%0APlease send M-Pesa payment details.`;
-  window.open("https://wa.me/+"+phone+"?text="+message,"_blank");
-  orders.push({name, location, product: product.name, quantity, status:"Pending"});
-  renderOrders();
-}
-
-function renderOrders(){
-  let tbody=document.getElementById("orderTable").getElementsByTagName("tbody")[0];
-  tbody.innerHTML="";
-  orders.forEach((o,i)=>{
-    let row=tbody.insertRow();
-    row.insertCell(0).innerText=o.name;
-    row.insertCell(1).innerText=o.location;
-    row.insertCell(2).innerText=o.product;
-    row.insertCell(3).innerText=o.quantity;
-    let cell=row.insertCell(4);
-    cell.innerHTML=`<select onchange="changeStatus(${i}, this.value)">
-      <option ${o.status==='Pending'?'selected':''}>Pending</option>
-      <option ${o.status==='Delivered'?'selected':''}>Delivered</option>
-    </select>`;
-  });
-}
-
-function changeStatus(index,status){
-  orders[index].status=status;
-  renderOrders();
-}
-
-renderProducts();
-</script>
-
+       // Load products on page load
+       window.onload = displayProducts;
+   </script>
 </body>
 </html>
