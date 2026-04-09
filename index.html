@@ -16,107 +16,90 @@
     body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light); color: #333; line-height: 1.6; }
     
     header { background: linear-gradient(135deg, var(--primary), #004d99); color: white; text-align: center; padding: 60px 20px; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
-    header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
+    header h1 { margin: 0; font-size: 2.2em; text-transform: uppercase; letter-spacing: 1px; }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-    /* Admin Profile Header */
+    /* Admin Profile Section */
     .profile-header { background: white; border-radius: 15px; padding: 30px; margin: -50px auto 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; text-align: center; max-width: 800px;}
-    .profile-pic { width: 150px; height: 150px; border-radius: 50%; border: 6px solid var(--primary); object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-    .verified-distributor { background: var(--secondary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; font-weight: bold; display: inline-block; margin-top: 10px; }
+    .profile-pic { width: 140px; height: 140px; border-radius: 50%; border: 5px solid white; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.2); outline: 3px solid var(--primary); }
+    .verified-distributor { background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-top: 15px; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-    /* Top Banner (From Image 23721) */
-    .banner-container { background: white; border-radius: 15px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid var(--primary); }
-    .banner-img { width: 100%; height: auto; display: block; }
-
-    /* Product Showcase */
+    /* Product Grid */
     h2 { text-align: center; color: var(--primary); margin: 40px 0 20px; font-size: 2em; }
     .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
     
-    .card { background: white; padding: 15px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+    .card { background: white; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #efefef; }
     .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-    .product-img { width: 100%; height: 250px; border-radius: 10px; object-fit: contain; background: #fff; margin-bottom: 15px; }
+    .product-img { width: 100%; height: 230px; border-radius: 12px; object-fit: cover; margin-bottom: 15px; background: #fff; }
     
     .price-tag { color: var(--secondary); font-size: 1.5em; font-weight: bold; margin: 10px 0; }
     
-    .buy-btn { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1em; }
+    .buy-btn { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1em; transition: 0.2s; }
     .buy-btn:hover { background: #e64a19; }
 
-    /* Form Section */
-    .form-section { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; margin-top: 40px; }
-    input, select { width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 8px; box-sizing: border-box; }
+    /* Order Form */
+    .form-section { background: #2c3e50; color: white; padding: 40px; border-radius: 20px; margin-top: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .form-section label { display: block; margin-top: 15px; font-weight: bold; font-size: 0.9em; color: #ecf0f1; }
+    input, select { width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 8px; box-sizing: border-box; font-size: 1em; }
     
+    .checkbox-container { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0; cursor: pointer; border: 1px dashed rgba(255,255,255,0.3); }
+    .checkbox-container input { width: auto; margin: 0; transform: scale(1.3); }
+
     footer { background: var(--dark); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
-    .whatsapp-float { color: #25d366; font-weight: bold; font-size: 1.2em; }
+    .whatsapp-float { color: #25d366; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 5px; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Jackston Online Business</h1>
-  <p>Empower yourself with healthy living products while creating income.</p>
+  <p>Your Health is Your Wealth. Shop our Premium Wellness Collection.</p>
 </header>
 
 <div class="container">
   
   <div class="profile-header">
-    <img src="jackston.png" alt="Jackston Oduor" class="profile-pic">
-    <div class="verified-distributor">GLOBAL INTERNET FORTUNES (GIF) - OFFICIAL DISTRIBUTOR</div>
-    <p style="font-size: 1.3em; margin: 15px 0 0;"><strong>Jackston Oduor</strong></p>
-    <p style="color: #666; font-weight: 300; margin-top: 5px;">Founder & Lead Distributor</p>
+    <img src="9714.jpg" alt="Jackston Oduor" class="profile-pic" onerror="this.src='https://via.placeholder.com/150?text=Jackston'">
+    <br>
+    <div class="verified-distributor">GLOBAL INTERNET FORTUNES (GIF) - AUTHORIZED DISTRIBUTOR</div>
+    <p style="font-size: 1.4em; margin: 15px 0 0;"><strong>Jackston Oduor</strong></p>
+    <p style="color: #666; margin-top: 5px;">Founder | Brand Ambassador</p>
   </div>
 
-  <div class="banner-container">
-    <img src="23721.png" alt="GIF Business Pillars" class="banner-img">
-  </div>
-
-  <div style="background: #fff; padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 8px solid var(--secondary);">
-    <h3>🌱 Who We Are</h3>
-    <p>Global Internet Fortunes (GIF) is your partner in wellness and financial freedom. We help you build a profitable business by bringing together the world's most dynamic industries: Affiliate Marketing, Web Hosting, Social Media, Online Branding, and Business Mentoring. Start your journey without inventory hassles.</p>
-  </div>
-
-  <h2>Featured Wellness Products</h2>
+  <h2>Premium Wellness Products</h2>
   <div class="products">
+    
     <div class="card">
-      <img src="23724.png" class="product-img" alt="Body Cream">
+      <img src="7716.jpg" class="product-img" alt="Body Cream" onerror="this.src='https://via.placeholder.com/250x230?text=Body+Cream'">
       <h3>Shea Butter & Beeswax Body Cream</h3>
-      <p>Anti-Ageing & Moisturizer (100g)</p>
+      <p>Anti-Ageing & Deep Moisturizer (100g)</p>
       <div class="price-tag">KES 700.00</div>
-      <button class="buy-btn" onclick="setProduct('Body Cream')">Order Now</button>
+      <button class="buy-btn" onclick="setProduct('Body Cream')">Buy Now</button>
     </div>
 
     <div class="card">
-      <img src="23722.png" class="product-img" alt="Sanitary Pads">
+      <img src="6576.jpg" class="product-img" alt="Sanitary Pads" onerror="this.src='https://via.placeholder.com/250x230?text=Sanitary+Pads'">
       <h3>Healthy Living Sanitary Pads</h3>
-      <p>Anti-bacterial & Anti-inflammatory</p>
-      <div class="price-tag">KES 350.00</div>
-      <button class="buy-btn" onclick="setProduct('Sanitary Pads')">Order Now</button>
+      <p>Anti-bacterial & High Absorbency</p>
+      <div class="price-tag">KES 300.00</div>
+      <button class="buy-btn" onclick="setProduct('Sanitary Pads')">Buy Now</button>
     </div>
 
     <div class="card">
-      <img src="23727.png" class="product-img" alt="Lip Balm">
+      <img src="6566.jpg" class="product-img" alt="Lip Balm" onerror="this.src='https://via.placeholder.com/250x230?text=Lip+Balm'">
       <h3>HLA Fresh Lips Lip Balm</h3>
-      <p>With Bee Propolis & Beeswax</p>
+      <p>Enriched with Propolis & Honey</p>
       <div class="price-tag">KES 250.00</div>
-      <button class="buy-btn" onclick="setProduct('Lip Balm')">Order Now</button>
+      <button class="buy-btn" onclick="setProduct('Lip Balm')">Buy Now</button>
     </div>
-  </div>
 
-  <div class="form-section" id="order-form">
-    <h2 style="color: white; margin-top: 0;">Place Your Order</h2>
-    <input type="text" id="custName" placeholder="Your Full Name">
-    <input type="text" id="custLoc" placeholder="Delivery Location (e.g. Nairobi CBD)">
-    <select id="prodSelect">
-      <option value="">-- Choose Product --</option>
-      <option value="Body Cream">Body Cream - KES 700</option>
-      <option value="Sanitary Pads">Sanitary Pads - KES 350</option>
-      <option value="Lip Balm">Lip Balm - KES 250</option>
-    </select>
-    <button onclick="sendOrder()" style="background: #25d366; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer;">
-      Confirm Order via WhatsApp ✅
-    </button>
-  </div>
-</div>
+    <div class="card">
+      <img src="7715.jpg" class="product-img" alt="Kojic Soap" onerror="this.src='https://via.placeholder.com/250x230?text=Soap'">
+      <h3>Kojic & Honey Bathing Soap</h3>
+      <p>Skin Brightening & Nourishing</p>
+      <div class="price-tag">KES 300.00</div>
+      <button class="buy-btn" onclick="setProduct('Kojic Soap')">Buy Now</button>
+    </div>
 
-<footer>
-  <p class="whatsapp-float">📞 Direct WhatsApp Support: 0119
+  </div>
