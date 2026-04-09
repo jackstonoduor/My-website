@@ -10,192 +10,113 @@
       --secondary: #00c853;
       --dark: #1a1a1a;
       --light: #f4f6f9;
+      --accent: #ff7043;
     }
 
-    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light); color: #333; }
+    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light); color: #333; line-height: 1.6; }
     
-    header { background: linear-gradient(135deg, var(--primary), #004d99); color: white; text-align: center; padding: 50px 20px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
-    header h1 { margin: 0; font-size: 2.2em; letter-spacing: 1px; }
-    header p { margin: 10px 0 0; opacity: 0.9; font-weight: 300; }
-
-    /* Profile Section */
-    .admin-profile { text-align: center; margin-top: -60px; margin-bottom: 20px; }
-    .profile-pic { width: 130px; height: 130px; border-radius: 50%; border: 6px solid white; object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1); background: white; }
-    .verified-label { background: var(--secondary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-top: -20px; position: relative; border: 2px solid white; }
+    header { background: linear-gradient(135deg, var(--primary), #004d99); color: white; text-align: center; padding: 60px 20px; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
+    header h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-    h2 { text-align: center; color: var(--primary); margin-top: 40px; }
 
-    /* Product Grid */
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
-    .product-img { width: 100%; height: 200px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; }
-    .price-tag { color: var(--secondary); font-size: 1.4em; font-weight: bold; margin: 10px 0; }
+    /* Admin Profile Header */
+    .profile-header { background: white; border-radius: 15px; padding: 30px; margin: -50px auto 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; text-align: center; max-width: 800px;}
+    .profile-pic { width: 150px; height: 150px; border-radius: 50%; border: 6px solid var(--primary); object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .verified-distributor { background: var(--secondary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; font-weight: bold; display: inline-block; margin-top: 10px; }
+
+    /* Top Banner (From Image 23721) */
+    .banner-container { background: white; border-radius: 15px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid var(--primary); }
+    .banner-img { width: 100%; height: auto; display: block; }
+
+    /* Product Showcase */
+    h2 { text-align: center; color: var(--primary); margin: 40px 0 20px; font-size: 2em; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
     
-    button { background: var(--secondary); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; transition: 0.2s; }
-    button:hover { background: #00a344; transform: scale(1.02); }
-
-    /* Forms */
-    .form-section { background: white; padding: 30px; border-radius: 15px; margin-top: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-    input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 1em; }
+    .card { background: white; padding: 15px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+    .product-img { width: 100%; height: 250px; border-radius: 10px; object-fit: contain; background: #fff; margin-bottom: 15px; }
     
-    .admin-panel { border-top: 5px solid var(--primary); }
+    .price-tag { color: var(--secondary); font-size: 1.5em; font-weight: bold; margin: 10px 0; }
+    
+    .buy-btn { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1em; }
+    .buy-btn:hover { background: #e64a19; }
 
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-    th, td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
-    th { background: #f8f9fa; color: var(--primary); }
-
+    /* Form Section */
+    .form-section { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; margin-top: 40px; }
+    input, select { width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 8px; box-sizing: border-box; }
+    
     footer { background: var(--dark); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
-    footer span { color: var(--secondary); font-weight: bold; }
+    .whatsapp-float { color: #25d366; font-weight: bold; font-size: 1.2em; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>🛍 Jackston Online Business</h1>
-  <p>Your Trusted Partner in Healthy Living & Wellness</p>
+  <h1>Jackston Online Business</h1>
+  <p>Empower yourself with healthy living products while creating income.</p>
 </header>
 
-<div class="admin-profile">
-  <img src="9714.jpg" alt="Jackston Oduor" class="profile-pic" onerror="this.src='https://via.placeholder.com/130?text=Jackston'">
-  <br>
-  <div class="verified-label">OFFICIAL DISTRIBUTOR</div>
-  <p style="font-size: 1.2em; margin: 10px 0 0;"><strong>Jackston Oduor</strong></p>
-</div>
-
 <div class="container">
-  <h2>Our Wellness Collection</h2>
-  <div class="products" id="productGrid"></div>
-
-  <div class="form-section">
-    <h2>📝 Place Your Order</h2>
-    <p style="text-align: center; color: #666;">Order details will be sent directly to Jackston via WhatsApp</p>
-    <input type="text" id="name" placeholder="Full Name">
-    <input type="text" id="location" placeholder="Delivery Location (Town/Estate)">
-    <input type="number" id="quantity" placeholder="Quantity" min="1" value="1">
-    <select id="productSelect"><option>Select Product</option></select>
-    <button onclick="checkout()">Order via WhatsApp ✅</button>
+  
+  <div class="profile-header">
+    <img src="jackston.png" alt="Jackston Oduor" class="profile-pic">
+    <div class="verified-distributor">GLOBAL INTERNET FORTUNES (GIF) - OFFICIAL DISTRIBUTOR</div>
+    <p style="font-size: 1.3em; margin: 15px 0 0;"><strong>Jackston Oduor</strong></p>
+    <p style="color: #666; font-weight: 300; margin-top: 5px;">Founder & Lead Distributor</p>
   </div>
 
-  <div class="form-section admin-panel">
-    <h2>📊 Admin: Order Management</h2>
-    <div style="overflow-x:auto;">
-      <table id="orderTable">
-        <thead>
-          <tr><th>Customer</th><th>Location</th><th>Product</th><th>Qty</th><th>Status</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+  <div class="banner-container">
+    <img src="23721.png" alt="GIF Business Pillars" class="banner-img">
+  </div>
+
+  <div style="background: #fff; padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 8px solid var(--secondary);">
+    <h3>🌱 Who We Are</h3>
+    <p>Global Internet Fortunes (GIF) is your partner in wellness and financial freedom. We help you build a profitable business by bringing together the world's most dynamic industries: Affiliate Marketing, Web Hosting, Social Media, Online Branding, and Business Mentoring. Start your journey without inventory hassles.</p>
+  </div>
+
+  <h2>Featured Wellness Products</h2>
+  <div class="products">
+    <div class="card">
+      <img src="23724.png" class="product-img" alt="Body Cream">
+      <h3>Shea Butter & Beeswax Body Cream</h3>
+      <p>Anti-Ageing & Moisturizer (100g)</p>
+      <div class="price-tag">KES 700.00</div>
+      <button class="buy-btn" onclick="setProduct('Body Cream')">Order Now</button>
+    </div>
+
+    <div class="card">
+      <img src="23722.png" class="product-img" alt="Sanitary Pads">
+      <h3>Healthy Living Sanitary Pads</h3>
+      <p>Anti-bacterial & Anti-inflammatory</p>
+      <div class="price-tag">KES 350.00</div>
+      <button class="buy-btn" onclick="setProduct('Sanitary Pads')">Order Now</button>
+    </div>
+
+    <div class="card">
+      <img src="23727.png" class="product-img" alt="Lip Balm">
+      <h3>HLA Fresh Lips Lip Balm</h3>
+      <p>With Bee Propolis & Beeswax</p>
+      <div class="price-tag">KES 250.00</div>
+      <button class="buy-btn" onclick="setProduct('Lip Balm')">Order Now</button>
     </div>
   </div>
 
-  <div class="form-section admin-panel">
-    <h2>⚙️ Inventory Management</h2>
-    <input type="text" id="prodName" placeholder="New Product Name">
-    <input type="number" id="prodPrice" placeholder="Price (KES)">
-    <input type="text" id="prodImg" placeholder="Image Filename (e.g., photo.jpg)">
-    <button onclick="addProduct()" style="background: var(--primary);">Update Inventory</button>
+  <div class="form-section" id="order-form">
+    <h2 style="color: white; margin-top: 0;">Place Your Order</h2>
+    <input type="text" id="custName" placeholder="Your Full Name">
+    <input type="text" id="custLoc" placeholder="Delivery Location (e.g. Nairobi CBD)">
+    <select id="prodSelect">
+      <option value="">-- Choose Product --</option>
+      <option value="Body Cream">Body Cream - KES 700</option>
+      <option value="Sanitary Pads">Sanitary Pads - KES 350</option>
+      <option value="Lip Balm">Lip Balm - KES 250</option>
+    </select>
+    <button onclick="sendOrder()" style="background: #25d366; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer;">
+      Confirm Order via WhatsApp ✅
+    </button>
   </div>
 </div>
 
 <footer>
-  <p>📞 Contact: <span>0119645924</span></p>
-  <p>Fast Delivery Across All Major Towns 🚚</p>
-  <p>© 2026 Jackston Online Business. Professional Branding by JO.</p>
-</footer>
-
-<script>
-let products = [
-  {name:"Shea Butter & Beeswax Body Cream", price:700, img:"7716.jpg"},
-  {name:"Healthy Living Sanitary Pads", price:350, img:"6576.jpg"},
-  {name:"Kojic & Honey Bathing Soap", price:300, img:"7715.jpg"},
-  {name:"Fresh Lips Propolis Lip Balm", price:250, img:"6566.jpg"},
-  {name:"Healthy Living Panty Liners", price:400, img:"6578.jpg"}
-];
-
-let orders = [];
-
-function renderProducts() {
-  let grid = document.getElementById("productGrid");
-  let select = document.getElementById("productSelect");
-  grid.innerHTML = "";
-  select.innerHTML = "<option>Select Product</option>";
-  
-  products.forEach((p,i)=>{
-    grid.innerHTML += `
-    <div class="card">
-      <img src="${p.img}" class="product-img" onerror="this.src='https://via.placeholder.com/260x200?text=Product'">
-      <h3>${p.name}</h3>
-      <div class="price-tag">KES ${p.price}</div>
-      <button onclick="selectProduct('${i}')">Buy Now</button>
-    </div>`;
-    select.innerHTML += `<option value="${i}">${p.name} - KES ${p.price}</option>`;
-  });
-}
-
-function selectProduct(index){
-  document.getElementById("productSelect").value = index;
-  document.getElementById("name").focus();
-}
-
-function addProduct(){
-  let name=document.getElementById("prodName").value;
-  let price=document.getElementById("prodPrice").value;
-  let img=document.getElementById("prodImg").value;
-  if(!name || !price || !img){ alert("Fill all fields"); return; }
-  products.push({name, price, img});
-  renderProducts();
-  document.getElementById("prodName").value="";
-  document.getElementById("prodPrice").value="";
-  document.getElementById("prodImg").value="";
-}
-
-function checkout(){
-  let name=document.getElementById("name").value;
-  let location=document.getElementById("location").value;
-  let quantity=document.getElementById("quantity").value;
-  let prodIndex=document.getElementById("productSelect").value;
-  
-  if(!name||!location||!quantity||prodIndex==="Select Product"){
-    alert("Please provide all order details."); 
-    return;
-  }
-  
-  let product=products[prodIndex];
-  let total = product.price * quantity;
-  let phone="254119645924";
-  let message=`*OFFICIAL ORDER*%0A%0A*Customer:* ${name}%0A*Location:* ${location}%0A*Item:* ${product.name}%0A*Qty:* ${quantity}%0A*Total:* KES ${total}%0A%0A_Please provide payment instructions._`;
-  
-  window.open("https://wa.me/"+phone+"?text="+message,"_blank");
-  
-  orders.push({name, location, product: product.name, quantity, status:"Pending"});
-  renderOrders();
-}
-
-function renderOrders(){
-  let tbody=document.getElementById("orderTable").getElementsByTagName("tbody")[0];
-  tbody.innerHTML="";
-  orders.forEach((o,i)=>{
-    let row=tbody.insertRow();
-    row.insertCell(0).innerText=o.name;
-    row.insertCell(1).innerText=o.location;
-    row.insertCell(2).innerText=o.product;
-    row.insertCell(3).innerText=o.quantity;
-    let cell=row.insertCell(4);
-    cell.innerHTML=`<select onchange="changeStatus(${i}, this.value)">
-      <option ${o.status==='Pending'?'selected':''}>Pending</option>
-      <option ${o.status==='Delivered'?'selected':''}>Delivered</option>
-    </select>`;
-  });
-}
-
-function changeStatus(index,status){
-  orders[index].status=status;
-  renderOrders();
-}
-
-renderProducts();
-</script>
-</body>
-</html>
+  <p class="whatsapp-float">📞 Direct WhatsApp Support: 0119
