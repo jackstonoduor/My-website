@@ -13,7 +13,7 @@
       --accent: #ff7043;
     }
 
-    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light); color: #333; line-height: 1.6; }
+    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light); color: #333; line-height: 1.6; scroll-behavior: smooth; }
     
     header { background: linear-gradient(135deg, var(--primary), #004d99); color: white; text-align: center; padding: 60px 20px; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
     header h1 { margin: 0; font-size: 2.2em; text-transform: uppercase; letter-spacing: 1px; }
@@ -41,13 +41,13 @@
     /* Order Form */
     .form-section { background: #2c3e50; color: white; padding: 40px; border-radius: 20px; margin-top: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
     .form-section label { display: block; margin-top: 15px; font-weight: bold; font-size: 0.9em; color: #ecf0f1; }
-    input, select { width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 8px; box-sizing: border-box; font-size: 1em; }
+    input { width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 8px; box-sizing: border-box; font-size: 1em; }
     
     .checkbox-container { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0; cursor: pointer; border: 1px dashed rgba(255,255,255,0.3); }
     .checkbox-container input { width: auto; margin: 0; transform: scale(1.3); }
 
     footer { background: var(--dark); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
-    .whatsapp-float { color: #25d366; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 5px; }
+    .whatsapp-footer { color: #25d366; font-weight: bold; text-decoration: none; font-size: 1.1em; }
   </style>
 </head>
 <body>
@@ -69,13 +69,12 @@
 
   <h2>Premium Wellness Products</h2>
   <div class="products">
-    
     <div class="card">
       <img src="7716.jpg" class="product-img" alt="Body Cream" onerror="this.src='https://via.placeholder.com/250x230?text=Body+Cream'">
       <h3>Shea Butter & Beeswax Body Cream</h3>
       <p>Anti-Ageing & Deep Moisturizer (100g)</p>
       <div class="price-tag">KES 700.00</div>
-      <button class="buy-btn" onclick="setProduct('Body Cream')">Buy Now</button>
+      <button class="buy-btn" onclick="setProduct('Shea Butter & Beeswax Body Cream')">Buy Now</button>
     </div>
 
     <div class="card">
@@ -83,7 +82,7 @@
       <h3>Healthy Living Sanitary Pads</h3>
       <p>Anti-bacterial & High Absorbency</p>
       <div class="price-tag">KES 300.00</div>
-      <button class="buy-btn" onclick="setProduct('Sanitary Pads')">Buy Now</button>
+      <button class="buy-btn" onclick="setProduct('Healthy Living Sanitary Pads')">Buy Now</button>
     </div>
 
     <div class="card">
@@ -91,7 +90,7 @@
       <h3>HLA Fresh Lips Lip Balm</h3>
       <p>Enriched with Propolis & Honey</p>
       <div class="price-tag">KES 250.00</div>
-      <button class="buy-btn" onclick="setProduct('Lip Balm')">Buy Now</button>
+      <button class="buy-btn" onclick="setProduct('HLA Fresh Lips Lip Balm')">Buy Now</button>
     </div>
 
     <div class="card">
@@ -99,7 +98,76 @@
       <h3>Kojic & Honey Bathing Soap</h3>
       <p>Skin Brightening & Nourishing</p>
       <div class="price-tag">KES 300.00</div>
-      <button class="buy-btn" onclick="setProduct('Kojic Soap')">Buy Now</button>
+      <button class="buy-btn" onclick="setProduct('Kojic & Honey Bathing Soap')">Buy Now</button>
     </div>
-
   </div>
+
+  <div class="form-section" id="order-form">
+    <h2 style="color: white; margin-top: 0;">Order & Delivery Details</h2>
+    <p style="text-align: center; color: #bdc3c7;">Complete the details below to finish your order via WhatsApp.</p>
+    
+    <form id="whatsappForm">
+      <label>Product Selected</label>
+      <input type="text" id="selected_product" placeholder="Click 'Buy Now' above" readonly style="background: #ecf0f1; font-weight: bold;">
+
+      <label>Client Name</label>
+      <input type="text" id="client_name" placeholder="Enter your full name" required>
+
+      <label>Phone Number</label>
+      <input type="tel" id="client_phone" placeholder="e.g. 07..." required>
+
+      <label>Delivery Location</label>
+      <input type="text" id="client_location" placeholder="City / Estate / House No." required>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="carrier_bag">
+        <label for="carrier_bag" style="margin: 0; cursor: pointer;">Add a branded carrier bag</label>
+      </div>
+
+      <button type="button" class="buy-btn" style="background: var(--secondary); padding: 18px; font-size: 1.2em; margin-top: 20px;" onclick="sendOrder()">
+        ✅ PLACE ORDER ON WHATSAPP
+      </button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Jackston Online Business. All Rights Reserved.</p>
+  <p>Contact us: <a href="https://wa.me/254119645924" class="whatsapp-footer">0119645924</a></p>
+</footer>
+
+<script>
+  function setProduct(productName) {
+    document.getElementById('selected_product').value = productName;
+    document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function sendOrder() {
+    const bizNumber = "254119645924"; 
+    const product = document.getElementById('selected_product').value;
+    const name = document.getElementById('client_name').value;
+    const phone = document.getElementById('client_phone').value;
+    const location = document.getElementById('client_location').value;
+    const bag = document.getElementById('carrier_bag').checked ? "Yes" : "No";
+
+    if (!product || !name || !location) {
+      alert("Please select a product and fill in all details.");
+      return;
+    }
+
+    const message = `*NEW ORDER - JACKSTON ONLINE BUSINESS*%0A` +
+                    `-----------------------------------%0A` +
+                    `*Product:* ${product}%0A` +
+                    `*Client:* ${name}%0A` +
+                    `*Phone:* ${phone}%0A` +
+                    `*Location:* ${location}%0A` +
+                    `*Carrier Bag:* ${bag}%0A` +
+                    `-----------------------------------%0A` +
+                    `Please confirm this order.`;
+
+    window.open(`https://wa.me/${bizNumber}?text=${message}`, '_blank');
+  }
+</script>
+
+</body>
+</html>
