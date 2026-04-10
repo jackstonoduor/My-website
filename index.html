@@ -1,174 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackston Online Business - Official Store</title>
-  <style>
-    :root {
-      --primary: #0a66c2;
-      --secondary: #00c853;
-      --dark: #1a1a1a;
-      --light: #f4f6f9;
-      --accent: #ff7043;
-    }
-
-    body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light); color: #333; line-height: 1.6; }
-    
-    header { background: linear-gradient(135deg, var(--primary), #004d99); color: white; text-align: center; padding: 60px 20px; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
-    header h1 { margin: 0; font-size: 2.2em; text-transform: uppercase; letter-spacing: 1px; }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-
-    /* Profile Section */
-    .profile-header { background: white; border-radius: 15px; padding: 30px; margin: -50px auto 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; text-align: center; max-width: 800px;}
-    .profile-pic { width: 140px; height: 140px; border-radius: 50%; border: 5px solid white; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.2); outline: 3px solid var(--primary); }
-    .verified-distributor { background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-top: 15px; border: 2px solid white; }
-
-    /* Product Grid */
-    h2 { text-align: center; color: var(--primary); margin: 40px 0 20px; font-size: 2em; }
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    
-    .card { background: white; padding: 15px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #efefef; }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-    .product-img { width: 100%; height: 220px; border-radius: 12px; object-fit: contain; margin-bottom: 15px; background: #fff; }
-    
-    .price-tag { color: var(--secondary); font-size: 1.4em; font-weight: bold; margin: 10px 0; }
-    
-    .buy-btn { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; transition: 0.2s; }
-    .buy-btn:hover { background: #e64a19; }
-
-    /* Form Section */
-    .form-section { background: #2c3e50; color: white; padding: 40px; border-radius: 20px; margin-top: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-    input, select { width: 100%; padding: 14px; margin: 10px 0; border: none; border-radius: 8px; box-sizing: border-box; font-size: 1em; }
-    
-    .checkbox-container { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0; cursor: pointer; }
-    .checkbox-container input { width: auto; margin: 0; transform: scale(1.3); }
-
-    footer { background: var(--dark); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
-    .whatsapp-btn { background: #25d366; color: white; border: none; padding: 18px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackston Online Store</title>
+    <style>
+        :root { --primary: #0a66c2; --secondary: #00c853; --accent: #ff7043; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f6f9; color: #333; }
+        
+        header { background: linear-gradient(135deg, var(--primary), #004d99); color: white; text-align: center; padding: 50px 20px; }
+        .profile-container { margin-top: -40px; text-align: center; }
+        .profile-pic { width: 150px; height: 150px; border-radius: 50%; border: 5px solid white; object-fit: cover; background: white; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        
+        .card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        .product-img { width: 100%; height: 200px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; }
+        .price { font-size: 1.3em; font-weight: bold; color: var(--secondary); margin: 10px 0; }
+        
+        .btn { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .order-form { background: #2c3e50; color: white; padding: 30px; border-radius: 12px; margin-top: 40px; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: none; }
+        .whatsapp-btn { background: #25d366; color: white; padding: 15px; width: 100%; border-radius: 6px; border: none; font-size: 1.1em; font-weight: bold; cursor: pointer; margin-top: 10px; }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>Jackston Online Business</h1>
-  <p>Premium Healthy Living & Personal Care Products</p>
+    <h1>Jackston Online Business</h1>
+    <p>Authorized Distributor of Healthy Living Products</p>
 </header>
 
-<div class="container">
-  
-  <div class="profile-header">
+<div class="profile-container">
     <img src="9714.jpg" alt="Jackston Oduor" class="profile-pic">
-    <br>
-    <div class="verified-distributor">GLOBAL INTERNET FORTUNES (GIF) - AUTHORIZED DISTRIBUTOR</div>
-    <p style="font-size: 1.4em; margin: 15px 0 0;"><strong>Jackston Oduor</strong></p>
-    <p style="color: #666; margin-top: 5px;">Founder | Brand Ambassador</p>
-  </div>
-
-  <h2>Our Wellness Collection</h2>
-  <div class="products">
-    
-    <div class="card">
-      <img src="7716.jpg" class="product-img" alt="Body Cream">
-      <h3>Shea Butter & Beeswax Body Cream</h3>
-      <p>Anti-Ageing & Moisturizer (100g)</p>
-      <div class="price-tag">KES 700.00</div>
-      <button class="buy-btn" onclick="setProduct('Body Cream')">Order Now</button>
-    </div>
-
-    <div class="card">
-      <img src="6576.jpg" class="product-img" alt="Sanitary Pads">
-      <h3>Healthy Living Sanitary Pads</h3>
-      <p>Anti-bacterial & Anti-inflammatory</p>
-      <div class="price-tag">KES 300.00</div>
-      <button class="buy-btn" onclick="setProduct('Sanitary Pads')">Order Now</button>
-    </div>
-
-    <div class="card">
-      <img src="6566.jpg" class="product-img" alt="Lip Balm">
-      <h3>HLA Fresh Lips Lip Balm</h3>
-      <p>With Bee Propolis & Beeswax</p>
-      <div class="price-tag">KES 250.00</div>
-      <button class="buy-btn" onclick="setProduct('Lip Balm')">Order Now</button>
-    </div>
-
-    <div class="card">
-      <img src="7715.jpg" class="product-img" alt="Kojic Soap">
-      <h3>Kojic & Honey Bathing Soap</h3>
-      <p>For Smooth & Glowing Skin</p>
-      <div class="price-tag">KES 300.00</div>
-      <button class="buy-btn" onclick="setProduct('Kojic Soap')">Order Now</button>
-    </div>
-
-  </div>
-
-  <div class="form-section" id="order-form">
-    <h2 style="color: white; margin-top: 0;">🛒 Quick Checkout</h2>
-    
-    <input type="text" id="custName" placeholder="Your Full Name">
-    <input type="text" id="custLoc" placeholder="Delivery Location (e.g., Nairobi CBD)">
-    
-    <select id="prodSelect">
-      <option value="">-- Select Product --</option>
-      <option value="Body Cream">Body Cream - KES 700</option>
-      <option value="Sanitary Pads">Sanitary Pads - KES 300</option>
-      <option value="Lip Balm">Lip Balm - KES 250</option>
-      <option value="Kojic Soap">Kojic Soap - KES 300</option>
-    </select>
-
-    <label class="checkbox-container">
-      <input type="checkbox" id="bagCheck"> 🛍 Add Carrier Bag (+ KES 20.00)
-    </label>
-
-    <button class="whatsapp-btn" onclick="sendOrder()">
-      Confirm Order via WhatsApp ✅
-    </button>
-  </div>
+    <div style="background: var(--secondary); color: white; display: inline-block; padding: 5px 15px; border-radius: 20px; margin-top: 10px; font-weight: bold;">Verified Distributor</div>
 </div>
 
-<footer>
-  <p>📞 Direct Support: 0119645924</p>
-  <p>© 2026 Jackston Online Business | Healthy Living Distributor</p>
-</footer>
+<div class="container">
+    <div class="product-grid">
+        <div class="card">
+            <img src="7716.jpg" alt="Body Cream" class="product-img">
+            <h3>Shea Butter Body Cream</h3>
+            <div class="price">KES 700.00</div>
+            <button class="btn" onclick="selectProduct('Body Cream', 700)">Select Product</button>
+        </div>
+
+        <div class="card">
+            <img src="6576.jpg" alt="Sanitary Pads" class="product-img">
+            <h3>Healthy Living Pads</h3>
+            <div class="price">KES 300.00</div>
+            <button class="btn" onclick="selectProduct('Sanitary Pads', 300)">Select Product</button>
+        </div>
+
+        <div class="card">
+            <img src="7715.jpg" alt="Kojic Soap" class="product-img">
+            <h3>Kojic & Honey Soap</h3>
+            <div class="price">KES 300.00</div>
+            <button class="btn" onclick="selectProduct('Kojic Soap', 300)">Select Product</button>
+        </div>
+
+        <div class="card">
+            <img src="6566.jpg" alt="Lip Balm" class="product-img">
+            <h3>Fresh Lips Lip Balm</h3>
+            <div class="price">KES 250.00</div>
+            <button class="btn" onclick="selectProduct('Lip Balm', 250)">Select Product</button>
+        </div>
+    </div>
+
+    <div class="order-form" id="checkout">
+        <h2>Place Your Order</h2>
+        <input type="text" id="name" placeholder="Your Full Name">
+        <input type="text" id="location" placeholder="Delivery Location (Town/Estate)">
+        <select id="productSelect">
+            <option value="">-- Choose Product --</option>
+            <option value="Body Cream">Body Cream - 700</option>
+            <option value="Sanitary Pads">Sanitary Pads - 300</option>
+            <option value="Kojic Soap">Kojic Soap - 300</option>
+            <option value="Lip Balm">Lip Balm - 250</option>
+        </select>
+        <p><input type="checkbox" id="carrierBag"> Add Carrier Bag (KES 20.00)</p>
+        <button class="whatsapp-btn" onclick="sendWhatsApp()">Order via WhatsApp ✅</button>
+    </div>
+</div>
 
 <script>
-function setProduct(name) {
-  document.getElementById('prodSelect').value = name;
-  document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
-}
+    function selectProduct(name, price) {
+        document.getElementById('productSelect').value = name;
+        document.getElementById('checkout').scrollIntoView({behavior: 'smooth'});
+    }
 
-function sendOrder() {
-  const name = document.getElementById('custName').value;
-  const location = document.getElementById('custLoc').value;
-  const product = document.getElementById('prodSelect').value;
-  const addBag = document.getElementById('bagCheck').checked;
-  const phone = "254119645924";
+    function sendWhatsApp() {
+        const name = document.getElementById('name').value;
+        const loc = document.getElementById('location').value;
+        const prod = document.getElementById('productSelect').value;
+        const bag = document.getElementById('carrierBag').checked;
+        const phone = "254119645924";
 
-  if (!name || !location || !product) {
-    alert("Please fill in all details to continue.");
-    return;
-  }
+        if (!name || !loc || !prod) {
+            alert("Please fill in your name, location, and select a product.");
+            return;
+        }
 
-  let basePrice = 0;
-  if(product === "Body Cream") basePrice = 700;
-  if(product === "Sanitary Pads") basePrice = 300;
-  if(product === "Lip Balm") basePrice = 250;
-  if(product === "Kojic Soap") basePrice = 300;
+        let total = (prod === "Body Cream" ? 700 : (prod === "Lip Balm" ? 250 : 300));
+        if(bag) total += 20;
 
-  let totalPrice = basePrice + (addBag ? 20 : 0);
-  let bagText = addBag ? "Yes (+20 KES)" : "No";
-
-  let message = `*NEW ORDER - JACKSTON ONLINE*%0A%0A` +
-                `*Customer:* ${name}%0A` +
-                `*Location:* ${location}%0A` +
-                `*Product:* ${product}%0A` +
-                `*Carrier Bag:* ${bagText}%0A` +
-                `*Total Amount:* KES ${totalPrice}%0A%0A` +
-                `Please confirm my order.`;
-
-  window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-}
+        const text = `*NEW ORDER*%0A*Name:* ${name}%0A*Location:* ${loc}%0A*Product:* ${prod}%0A*Carrier Bag:* ${bag ? 'Yes' : 'No'}%0A*Total:* KES ${total}`;
+        window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
 </script>
 
 </body>
